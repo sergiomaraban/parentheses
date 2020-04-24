@@ -1,0 +1,25 @@
+using System;
+
+namespace parentheses
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            parentheses(n , n , "");
+
+        }
+        static void parentheses(int left, int rigth, string str)
+        {
+            if (left == 0 && rigth == 0)
+                Console.WriteLine(str);
+            if (left > rigth)
+                return;
+            if (left > 0)
+                parentheses(left - 1, rigth, str+"(");
+            if( rigth > 0)
+                parentheses(left, rigth - 1, str+")");
+        }
+    }
+}
